@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hrgoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Candidatoes">
+    <Key>
+      <PropertyRef Name="IdCandidato" />
+    </Key>
+    <Property Name="IdCandidato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalarioDeseado" Type="Single" Nullable="false" />
+    <Property Name="Recomendador" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Departamento_IdDepartamento" Type="Int32" />
+    <Property Name="Puesto_IdPuesto" Type="Int32" />
+    <NavigationProperty Name="Departamentoes" Relationship="Self.FK_dbo_Candidatoes_dbo_Departamentoes_Departamento_IdDepartamento" FromRole="Candidatoes" ToRole="Departamentoes" />
+    <NavigationProperty Name="Puestoes" Relationship="Self.FK_dbo_Candidatoes_dbo_Puestoes_Puesto_IdPuesto" FromRole="Candidatoes" ToRole="Puestoes" />
+    <NavigationProperty Name="Capacitacions" Relationship="Self.FK_dbo_Capacitacions_dbo_Candidatoes_Candidato_IdCandidato" FromRole="Candidatoes" ToRole="Capacitacions" />
+    <NavigationProperty Name="Competencias" Relationship="Self.FK_dbo_Competencias_dbo_Candidatoes_Candidato_IdCandidato" FromRole="Candidatoes" ToRole="Competencias" />
+    <NavigationProperty Name="Experiencias" Relationship="Self.FK_dbo_Experiencias_dbo_Candidatoes_Candidato_IdCandidato" FromRole="Candidatoes" ToRole="Experiencias" />
+    <NavigationProperty Name="Idiomas" Relationship="Self.IdiomaCandidatoes" FromRole="Candidatoes" ToRole="Idiomas" />
+  </EntityType>
+  <EntityType Name="Capacitacions">
+    <Key>
+      <PropertyRef Name="IdCapacitacion" />
+    </Key>
+    <Property Name="IdCapacitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nivel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaDesde" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaHasta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Institucion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Candidato_IdCandidato" Type="Int32" />
+    <NavigationProperty Name="Candidatoes" Relationship="Self.FK_dbo_Capacitacions_dbo_Candidatoes_Candidato_IdCandidato" FromRole="Capacitacions" ToRole="Candidatoes" />
+  </EntityType>
+  <EntityType Name="Competencias">
+    <Key>
+      <PropertyRef Name="IdCompetencia" />
+    </Key>
+    <Property Name="IdCompetencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <Property Name="Candidato_IdCandidato" Type="Int32" />
+    <NavigationProperty Name="Candidatoes" Relationship="Self.FK_dbo_Competencias_dbo_Candidatoes_Candidato_IdCandidato" FromRole="Competencias" ToRole="Candidatoes" />
+  </EntityType>
+  <EntityType Name="Departamentoes">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Candidatoes" Relationship="Self.FK_dbo_Candidatoes_dbo_Departamentoes_Departamento_IdDepartamento" FromRole="Departamentoes" ToRole="Candidatoes" />
+    <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Departamentoes_Departamento_IdDepartamento" FromRole="Departamentoes" ToRole="Empleadoes" />
+  </EntityType>
+  <EntityType Name="Empleadoes">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salario" Type="Single" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <Property Name="Departamento_IdDepartamento" Type="Int32" />
+    <Property Name="Puesto_IdPuesto" Type="Int32" />
+    <NavigationProperty Name="Departamentoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Departamentoes_Departamento_IdDepartamento" FromRole="Empleadoes" ToRole="Departamentoes" />
+    <NavigationProperty Name="Puestoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Puestoes_Puesto_IdPuesto" FromRole="Empleadoes" ToRole="Puestoes" />
+  </EntityType>
+  <EntityType Name="Experiencias">
+    <Key>
+      <PropertyRef Name="IdExperiencia" />
+    </Key>
+    <Property Name="IdExperiencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Puesto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaDesde" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaHasta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salario" Type="Single" Nullable="false" />
+    <Property Name="Candidato_IdCandidato" Type="Int32" />
+    <NavigationProperty Name="Candidatoes" Relationship="Self.FK_dbo_Experiencias_dbo_Candidatoes_Candidato_IdCandidato" FromRole="Experiencias" ToRole="Candidatoes" />
+  </EntityType>
+  <EntityType Name="Idiomas">
+    <Key>
+      <PropertyRef Name="IdiomaId" />
+    </Key>
+    <Property Name="IdiomaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Candidatoes" Relationship="Self.IdiomaCandidatoes" FromRole="Idiomas" ToRole="Candidatoes" />
+  </EntityType>
+  <EntityType Name="Puestoes">
+    <Key>
+      <PropertyRef Name="IdPuesto" />
+    </Key>
+    <Property Name="IdPuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NivelDeRiesgo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalarioMax" Type="Single" Nullable="false" />
+    <Property Name="SalarioMin" Type="Single" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Candidatoes" Relationship="Self.FK_dbo_Candidatoes_dbo_Puestoes_Puesto_IdPuesto" FromRole="Puestoes" ToRole="Candidatoes" />
+    <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Puestoes_Puesto_IdPuesto" FromRole="Puestoes" ToRole="Empleadoes" />
+  </EntityType>
+  <Association Name="FK_dbo_Candidatoes_dbo_Departamentoes_Departamento_IdDepartamento">
+    <End Role="Departamentoes" Type="Self.Departamentoes" Multiplicity="0..1" />
+    <End Role="Candidatoes" Type="Self.Candidatoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentoes">
+        <PropertyRef Name="IdDepartamento" />
+      </Principal>
+      <Dependent Role="Candidatoes">
+        <PropertyRef Name="Departamento_IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Candidatoes_dbo_Puestoes_Puesto_IdPuesto">
+    <End Role="Puestoes" Type="Self.Puestoes" Multiplicity="0..1" />
+    <End Role="Candidatoes" Type="Self.Candidatoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puestoes">
+        <PropertyRef Name="IdPuesto" />
+      </Principal>
+      <Dependent Role="Candidatoes">
+        <PropertyRef Name="Puesto_IdPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Capacitacions_dbo_Candidatoes_Candidato_IdCandidato">
+    <End Role="Candidatoes" Type="Self.Candidatoes" Multiplicity="0..1" />
+    <End Role="Capacitacions" Type="Self.Capacitacions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidatoes">
+        <PropertyRef Name="IdCandidato" />
+      </Principal>
+      <Dependent Role="Capacitacions">
+        <PropertyRef Name="Candidato_IdCandidato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Competencias_dbo_Candidatoes_Candidato_IdCandidato">
+    <End Role="Candidatoes" Type="Self.Candidatoes" Multiplicity="0..1" />
+    <End Role="Competencias" Type="Self.Competencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidatoes">
+        <PropertyRef Name="IdCandidato" />
+      </Principal>
+      <Dependent Role="Competencias">
+        <PropertyRef Name="Candidato_IdCandidato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Experiencias_dbo_Candidatoes_Candidato_IdCandidato">
+    <End Role="Candidatoes" Type="Self.Candidatoes" Multiplicity="0..1" />
+    <End Role="Experiencias" Type="Self.Experiencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidatoes">
+        <PropertyRef Name="IdCandidato" />
+      </Principal>
+      <Dependent Role="Experiencias">
+        <PropertyRef Name="Candidato_IdCandidato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Empleadoes_dbo_Departamentoes_Departamento_IdDepartamento">
+    <End Role="Departamentoes" Type="Self.Departamentoes" Multiplicity="0..1" />
+    <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentoes">
+        <PropertyRef Name="IdDepartamento" />
+      </Principal>
+      <Dependent Role="Empleadoes">
+        <PropertyRef Name="Departamento_IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Empleadoes_dbo_Puestoes_Puesto_IdPuesto">
+    <End Role="Puestoes" Type="Self.Puestoes" Multiplicity="0..1" />
+    <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puestoes">
+        <PropertyRef Name="IdPuesto" />
+      </Principal>
+      <Dependent Role="Empleadoes">
+        <PropertyRef Name="Puesto_IdPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IdiomaCandidatoes">
+    <End Role="Candidatoes" Type="Self.Candidatoes" Multiplicity="*" />
+    <End Role="Idiomas" Type="Self.Idiomas" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="hrgoEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Candidatoes" EntityType="Self.Candidatoes" />
+    <EntitySet Name="Capacitacions" EntityType="Self.Capacitacions" />
+    <EntitySet Name="Competencias" EntityType="Self.Competencias" />
+    <EntitySet Name="Departamentoes" EntityType="Self.Departamentoes" />
+    <EntitySet Name="Empleadoes" EntityType="Self.Empleadoes" />
+    <EntitySet Name="Experiencias" EntityType="Self.Experiencias" />
+    <EntitySet Name="Idiomas" EntityType="Self.Idiomas" />
+    <EntitySet Name="Puestoes" EntityType="Self.Puestoes" />
+    <AssociationSet Name="FK_dbo_Candidatoes_dbo_Departamentoes_Departamento_IdDepartamento" Association="Self.FK_dbo_Candidatoes_dbo_Departamentoes_Departamento_IdDepartamento">
+      <End Role="Departamentoes" EntitySet="Departamentoes" />
+      <End Role="Candidatoes" EntitySet="Candidatoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Candidatoes_dbo_Puestoes_Puesto_IdPuesto" Association="Self.FK_dbo_Candidatoes_dbo_Puestoes_Puesto_IdPuesto">
+      <End Role="Puestoes" EntitySet="Puestoes" />
+      <End Role="Candidatoes" EntitySet="Candidatoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Capacitacions_dbo_Candidatoes_Candidato_IdCandidato" Association="Self.FK_dbo_Capacitacions_dbo_Candidatoes_Candidato_IdCandidato">
+      <End Role="Candidatoes" EntitySet="Candidatoes" />
+      <End Role="Capacitacions" EntitySet="Capacitacions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Competencias_dbo_Candidatoes_Candidato_IdCandidato" Association="Self.FK_dbo_Competencias_dbo_Candidatoes_Candidato_IdCandidato">
+      <End Role="Candidatoes" EntitySet="Candidatoes" />
+      <End Role="Competencias" EntitySet="Competencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Experiencias_dbo_Candidatoes_Candidato_IdCandidato" Association="Self.FK_dbo_Experiencias_dbo_Candidatoes_Candidato_IdCandidato">
+      <End Role="Candidatoes" EntitySet="Candidatoes" />
+      <End Role="Experiencias" EntitySet="Experiencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Empleadoes_dbo_Departamentoes_Departamento_IdDepartamento" Association="Self.FK_dbo_Empleadoes_dbo_Departamentoes_Departamento_IdDepartamento">
+      <End Role="Departamentoes" EntitySet="Departamentoes" />
+      <End Role="Empleadoes" EntitySet="Empleadoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Empleadoes_dbo_Puestoes_Puesto_IdPuesto" Association="Self.FK_dbo_Empleadoes_dbo_Puestoes_Puesto_IdPuesto">
+      <End Role="Puestoes" EntitySet="Puestoes" />
+      <End Role="Empleadoes" EntitySet="Empleadoes" />
+    </AssociationSet>
+    <AssociationSet Name="IdiomaCandidatoes" Association="Self.IdiomaCandidatoes">
+      <End Role="Candidatoes" EntitySet="Candidatoes" />
+      <End Role="Idiomas" EntitySet="Idiomas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

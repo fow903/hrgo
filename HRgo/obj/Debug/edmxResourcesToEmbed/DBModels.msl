@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hrgoModelStoreContainer" CdmEntityContainer="hrgoEntities">
+    <EntitySetMapping Name="Candidatoes">
+      <EntityTypeMapping TypeName="hrgoModel.Candidatoes">
+        <MappingFragment StoreEntitySet="Candidatoes">
+          <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="SalarioDeseado" ColumnName="SalarioDeseado" />
+          <ScalarProperty Name="Recomendador" ColumnName="Recomendador" />
+          <ScalarProperty Name="Departamento_IdDepartamento" ColumnName="Departamento_IdDepartamento" />
+          <ScalarProperty Name="Puesto_IdPuesto" ColumnName="Puesto_IdPuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Capacitacions">
+      <EntityTypeMapping TypeName="hrgoModel.Capacitacions">
+        <MappingFragment StoreEntitySet="Capacitacions">
+          <ScalarProperty Name="IdCapacitacion" ColumnName="IdCapacitacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="FechaDesde" ColumnName="FechaDesde" />
+          <ScalarProperty Name="FechaHasta" ColumnName="FechaHasta" />
+          <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+          <ScalarProperty Name="Candidato_IdCandidato" ColumnName="Candidato_IdCandidato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competencias">
+      <EntityTypeMapping TypeName="hrgoModel.Competencias">
+        <MappingFragment StoreEntitySet="Competencias">
+          <ScalarProperty Name="IdCompetencia" ColumnName="IdCompetencia" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Candidato_IdCandidato" ColumnName="Candidato_IdCandidato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentoes">
+      <EntityTypeMapping TypeName="hrgoModel.Departamentoes">
+        <MappingFragment StoreEntitySet="Departamentoes">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleadoes">
+      <EntityTypeMapping TypeName="hrgoModel.Empleadoes">
+        <MappingFragment StoreEntitySet="Empleadoes">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Departamento_IdDepartamento" ColumnName="Departamento_IdDepartamento" />
+          <ScalarProperty Name="Puesto_IdPuesto" ColumnName="Puesto_IdPuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Experiencias">
+      <EntityTypeMapping TypeName="hrgoModel.Experiencias">
+        <MappingFragment StoreEntitySet="Experiencias">
+          <ScalarProperty Name="IdExperiencia" ColumnName="IdExperiencia" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+          <ScalarProperty Name="FechaDesde" ColumnName="FechaDesde" />
+          <ScalarProperty Name="FechaHasta" ColumnName="FechaHasta" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+          <ScalarProperty Name="Candidato_IdCandidato" ColumnName="Candidato_IdCandidato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Idiomas">
+      <EntityTypeMapping TypeName="hrgoModel.Idiomas">
+        <MappingFragment StoreEntitySet="Idiomas">
+          <ScalarProperty Name="IdiomaId" ColumnName="IdiomaId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puestoes">
+      <EntityTypeMapping TypeName="hrgoModel.Puestoes">
+        <MappingFragment StoreEntitySet="Puestoes">
+          <ScalarProperty Name="IdPuesto" ColumnName="IdPuesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NivelDeRiesgo" ColumnName="NivelDeRiesgo" />
+          <ScalarProperty Name="SalarioMax" ColumnName="SalarioMax" />
+          <ScalarProperty Name="SalarioMin" ColumnName="SalarioMin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

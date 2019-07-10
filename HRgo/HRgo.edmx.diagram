@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="655b11bd0c4a4d128c00b76945f28e43" Name="Diagram1">
+        <EntityTypeShape EntityType="hrgoModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Candidatoes" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Capacitacions" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Competencias" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Departamentoes" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Empleadoes" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Experiencias" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Idiomas" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hrgoModel.Puestoes" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="hrgoModel.FK_dbo_Candidatoes_dbo_Departamentoes_Departamento_IdDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="hrgoModel.FK_dbo_Candidatoes_dbo_Puestoes_Puesto_IdPuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="hrgoModel.FK_dbo_Capacitacions_dbo_Candidatoes_Candidato_IdCandidato" ManuallyRouted="false" />
+        <AssociationConnector Association="hrgoModel.FK_dbo_Competencias_dbo_Candidatoes_Candidato_IdCandidato" ManuallyRouted="false" />
+        <AssociationConnector Association="hrgoModel.FK_dbo_Experiencias_dbo_Candidatoes_Candidato_IdCandidato" ManuallyRouted="false" />
+        <AssociationConnector Association="hrgoModel.FK_dbo_Empleadoes_dbo_Departamentoes_Departamento_IdDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="hrgoModel.FK_dbo_Empleadoes_dbo_Puestoes_Puesto_IdPuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="hrgoModel.IdiomaCandidatoes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
